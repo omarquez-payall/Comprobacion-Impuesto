@@ -19,7 +19,7 @@
     
     'version': '1.0.0',
     
-    'depends': ['base', 'accounting'],
+    'depends': ['account_accountant'],
     
     'data': [
         
