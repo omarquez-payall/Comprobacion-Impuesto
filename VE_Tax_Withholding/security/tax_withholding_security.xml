@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <record id="group_tax_withholding_admin" model="tax.withholding_voucher">
+    <record id="group_tax_withholding_admin" model="res.groups">
         <field name="name"> Tax Withholding / Admin </field>
     </record>
 
