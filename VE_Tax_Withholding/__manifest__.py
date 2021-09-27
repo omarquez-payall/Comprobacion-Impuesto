@@ -22,7 +22,9 @@
     'depends': ['account_accountant'],
     
     'data': [
-        "views/tax_withholding_views.xml"
+        "views/tax_withholding_views.xml",
+        "security/ir.model.access.csv",
+        "security/tax_withholding_security.xml"
     ],
     
     'demo': [
