@@ -14,4 +14,6 @@ class TaxWithholdingVoucher( models.Model):
 
     active = fields.Boolean( string = 'Active', default = True)
 
+    tax_rate = fields.Float( string = 'Withholding Tax rate')
+
     

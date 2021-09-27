@@ -22,7 +22,7 @@
     'depends': ['account_accountant'],
     
     'data': [
-        
+        "views/tax_withholding_views.xml"
     ],
     
     'demo': [

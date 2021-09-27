@@ -1,0 +1,55 @@
+<? version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data> 
+        <record model="ir.ui.view" id="tax_withholding_form">
+            <field name="name">tax.withholding.form</field>
+            <field name="model">tax.withholding_voucher</field>
+            <field name="arch" type="xml">
+                <form string="Tax Withholding Voucher Form">
+                    <sheet>
+                        <h1> <field name="name"/></h1>
+                        <group>
+                            <group> 
+                                <field name="code"/>
+                                <field name="active"/>
+                            </group>
+                            <group> 
+                                <field name="tax_rate"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Internal Notes">
+                                <field name="notes"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="tax_withholding_list">
+            <field name="name">tax.withholding.list</field>
+            <field name="model">tax.withholding_voucher</field>
+            <field name="arch" type="xml">
+                <tree string="Tax Withholding Voucher List">
+                   <field name="name"/>
+                   <field name="tax_rate"/>
+                   <field name="create_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="tax_withholding_search">
+            <field name="name">tax.withholding.search</field>
+            <field name="model">tax.withholding_voucher</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="tax_rate"/>
+                </search>
+            </field>
+        
+        </record> 
+    </data>
+</odoo>
