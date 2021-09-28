@@ -16,4 +16,9 @@ class TaxWithholdingVoucher( models.Model):
 
     tax_rate = fields.Float( string = 'Withholding Tax rate')
 
+    related_invoice = fields.One2Many( string = 'Referencia de la Factura',
+                                        comodel_name = 'account.move',
+                                        inverse_name = 'related_tax_withholding',
+                                        required = True)
+
     
