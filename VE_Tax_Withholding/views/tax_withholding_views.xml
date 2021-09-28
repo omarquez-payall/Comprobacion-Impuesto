@@ -18,6 +18,9 @@
                             </group>
                         </group>
                         <notebook>
+                            <page string="Invoice">
+                                <field name="related_invoice" />
+                            </page>
                             <page string="Internal Notes">
                                 <field name="notes"/>
                             </page>

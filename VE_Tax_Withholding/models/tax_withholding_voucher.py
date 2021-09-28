@@ -20,4 +20,7 @@ class TaxWithholdingVoucher( models.Model):
                                         comodel_name = 'account.move',
                                         required = True)
 
+    customer = fields.Many2one(string='Cliente', related='invoice_id.partner_id')
+
+
     

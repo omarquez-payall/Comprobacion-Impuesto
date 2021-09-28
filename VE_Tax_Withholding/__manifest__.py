@@ -26,6 +26,7 @@
         "security/ir.model.access.csv",
         "views/tax_withholding_views.xml",
         "views/tax_withholding_menuitems.xml",
+        "report/tax_withholding_report.xml"
     ],
     
     'demo': [
