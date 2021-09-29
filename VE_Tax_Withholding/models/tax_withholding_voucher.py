@@ -14,13 +14,25 @@ class TaxWithholdingVoucher( models.Model):
 
     active = fields.Boolean( string = 'Active', default = True)
 
-    tax_rate = fields.Float( string = 'Withholding Tax rate')
+    tax_rate = fields.Char( string = 'Withholding Tax rate', readonly=True)
+
+    withholding_amount = fields.Char( string = 'Withholding amount', readonly=True)
 
     related_invoice = fields.Many2one( string = 'Referencia de la Factura',
                                         comodel_name = 'account.move',
                                         required = True)
 
     customer = fields.Many2one(string='Cliente', related='related_invoice.partner_id')
+
+    @api.onchange('related_invoice')
+    def _onchange_related_invoice(self):
+        flag = False
+        if self.related_invoice.amount_by_group: 
+            for amount_group in self.related_invoice.amount_by_group:
+                tax_rate = amount_group[0]
+                withholding_amount = amount_group[3]
+
+
 
 
     
