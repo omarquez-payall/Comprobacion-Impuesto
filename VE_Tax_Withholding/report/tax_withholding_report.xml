@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
-    <report
+    <report 
         id="action_report_tax_withholding"
         model="tax.withholding_voucher"
         string="Comprobante de Retencion"
@@ -14,56 +14,94 @@
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="doc">
                 <t t-call="web.external_layout">
-                    <div class="page">
-                        <h2 t-field="doc.name" class="nt16"/>
+                    <!-- SEPARACION DE CONTENIDO INFORMACION DEL CLIENTE -->
+                    <div >
+                        <t t-set="address" />
+                        <span style=" font-size: 20px !important; font-weight:bold !important;"> Informacion del Cliente</span>
+                        <address t-field="doc.related_invoice.partner_id"   t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+                        <div t-if="doc.related_invoice.partner_id.vat" class="mt16">
+                            <t t-if="doc.related_invoice.company_id.country_id.vat_label" t-esc="doc.related_invoice.company_id.country_id.vat_label" id="inv_tax_id_label"/>
+                            <t t-else="">Rif:</t> <span t-field="doc.related_invoice.partner_id.vat"/>
+                        </div>
+                        <div t-if="doc.related_invoice.partner_id.phone != '/'">  
+                          <p>Telefono: <span  t-field="doc.related_invoice.partner_id.phone"/></p>
+                        </div>
+                    </div>
+                    <!-- SEPARACION DE CONTENIDO TITULO-->
+                    <div >
+                        <h2 class="nt16"> COMPROBANTE DE RETENCIONES VARIAS (AR-CV) </h2>
                         <div class="row nt32 nb32" id="withholding_info">
                             <div class="col-auto mw-100 mb-2">
-                                <strong>Comprobante de Retencion de Impuesto (AR-CV)</strong>
+                                <p> DEL IMPUESTO SOBRE LA RENTA </p>
+                                <p> (EXCEPTO SUELDOS, SALARIOS Y DEMAS REMUNERACIONES SIMILARES A PERSONAS NATUALES RESIDENTES) </p>
                             </div>
                         </div>
+                    </div>
+                  
+                    <div class="page">
+                                <div class="row">
+                                    <table class="table table-sm o_main_table">
+                                        <thead>
+                                            <tr>
+                                                <th name="th_invoice">No Factura</th>
+                                                <th name="th_date">Fecha</th>
+                                                <th name="th_type">Tipo</th>
+                                                <th name="th_invoice_ammount">Importe de Factura</th>
+                                                <th name="th_taxable_income">Base Imponible</th>
+                                                <th name="th_tax_rate">% Ret</th>
+                                                <th name="th_tax_withheld">Impuesto Retenido</th>
+                                                <th name="th_net_amount">Importe Neto</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td name="th_invoice">
+                                                    <t t-if="doc.related_invoice.name">
+                                                      <span t-field="doc.related_invoice.name"/>
+                                                    </t>
+                                                </td>
+                                                <td name="th_date">
+                                                    <t t-if="doc.related_invoice.invoice_date">
+                                                      <span t-field="doc.related_invoice.invoice_date"/>
+                                                    </t>
+                                                </td>
+                                                <td name="th_type">
+                                                    <p>PND</p>
+                                                </td>
+                                                <td name="th_invoice_ammount">
+                                                    <t t-if="doc.related_invoice.amount_total">
+                                                      <span t-field="doc.related_invoice.amount_total"/>
+                                                    </t>
+                                                </td>
+                                                <td name="th_taxable_income">
+                                                    <p>452</p>
+                                                </td>
+                                                <td name="th_tax_rate">
+                                                    <p>4%</p>
+                                                </td>
+                                                <td name="th_tax_withheld">
+                                                    <t t-if="doc.related_invoice.amount_tax">
+                                                      <span t-field="doc.related_invoice.amount_tax"/>
+                                                    </t>
+                                                </td>
+                                                <td name="th_net_amount">
+                                                    <p>6506</p>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
 
-                        <table class="table table-sm o_main_table">
-                            <thead>
-                                <tr>
-                                    <th name="th_invoice">No Factura</th>
-                                    <th name="th_date">Fecha</th>
-                                    <th name="th_type">Tipo</th>
-                                    <th name="th_invoice_ammount">Importe de Factura</th>
-                                    <th name="th_taxable_income">Base Imponible</th>
-                                    <th name="th_tax_rate">% Ret</th>
-                                    <th name="th_tax_withheld">Impuesto Retenido</th>
-                                    <th name="th_net_amount">Importe Neto</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td name="th_invoice">
-                                        <p> No 50452526</p>
-                                    </td>
-                                    <td name="th_date">
-                                        <p> 12/08/2021</p>
-                                    </td>
-                                    <td name="th_type">
-                                        <p>PND</p>
-                                    </td>
-                                    <td name="th_invoice_ammount">
-                                        <p>6545.236</p>
-                                    </td>
-                                    <td name="th_taxable_income">
-                                        <p>452</p>
-                                    </td>
-                                    <td name="th_tax_rate">
-                                        <p>4%</p>
-                                    </td>
-                                    <td name="th_tax_withheld">
-                                        <p>52</p>
-                                    </td>
-                                    <td name="th_net_amount">
-                                        <p>5000.236</p>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                <div class="row">
+                                    <div class="col">
+                                        <strong> AGENTE DE RETENCION (SELLO,FECHA Y FIRMA) </strong>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <strong> BENEFICIARIO</strong>
+                                    </div>
+                                </div>
                     </div>
                 </t>
             </t>
