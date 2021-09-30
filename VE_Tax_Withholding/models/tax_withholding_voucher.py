@@ -26,9 +26,10 @@ class TaxWithholdingVoucher( models.Model):
 
     @api.onchange('related_invoice')
     def _onchange_related_invoice(self):
-        if self.related_invoice.amount_by_group: 
-            self.tax_rate = self.related_invoice.amount_by_group[1][1]*(100/self.related_invoice.amount_by_group[1][2])
-            self.withholding_amount = self.related_invoice.amount_by_group[1][1] * (-1)
+        for record in self:
+            if record.amount_by_group:
+                self.tax_rate = record.amount_by_group[1][1]*(100/record.amount_by_group[1][2])
+                self.withholding_amount = record.amount_by_group[1][1] * (-1)
 
 
 
