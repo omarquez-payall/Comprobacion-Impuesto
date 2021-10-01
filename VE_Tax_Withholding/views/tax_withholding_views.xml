@@ -12,16 +12,27 @@
                             <group> 
                                 <field name="active"/>
                                 <field name="related_invoice"/>
+                                <field name="subject"/>
                             </group>
                             <group> 
-                                <field name="tax_rate"/>
-                                <field name="withholding_amount"/>
+                                <field name="tax_amount" position="after">
+                                    <field name="taxed_amount_held" attrs="{'invisible':[('invoice_id','=', False)]}" />
+                                </field>
+
+                                <field name="taxed_amount_held" position="after">
+                                    <field name="untaxed_amount" attrs="{'invisible':[('invoice_id','=', False)]}" />
+                                </field>
+
+                                <field name="untaxed_amount" position="after">
+                                    <field name="total_amount" attrs="{'invisible':[('invoice_id','=', False)]}" />
+                                </field>
+
+                                <field name="total_amount" position="after">
+                                    <field name="total_net_amount" attrs="{'invisible':[('invoice_id','=', False)]}" />
+                                </field>
                             </group>
                         </group>
                         <notebook>
-                            <page string="Invoice">
-                                <field name="related_invoice" />
-                            </page>
                             <page string="Internal Notes">
                                 <field name="notes"/>
                             </page>
