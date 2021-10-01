@@ -50,7 +50,7 @@
                 <tree string="Tax Withholding Voucher List">
                    <field name="code"/>
                    <field name="related_invoice"/>
-                   <field name="tax_rate"/>
+                   <field name="tax_amount"/>
                    <field name="create_date"/>
                 </tree>
             </field>
@@ -63,7 +63,7 @@
                 <search>
                     <field name="code"/>
                     <field name="related_invoice"/>
-                    <field name="tax_rate"/>
+                    <field name="tax_amount"/>
                 </search>
             </field>
         
