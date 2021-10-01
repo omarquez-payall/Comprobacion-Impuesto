@@ -16,19 +16,19 @@
                             </group>
                             <group> 
                                 <field name="tax_amount" position="after">
-                                    <field name="taxed_amount_held" attrs="{'invisible':[('invoice_id','=', False)]}" />
+                                    <field name="taxed_amount_held" attrs="{'invisible':[('related_invoice','=', False)]}" />
                                 </field>
 
                                 <field name="taxed_amount_held" position="after">
-                                    <field name="untaxed_amount" attrs="{'invisible':[('invoice_id','=', False)]}" />
+                                    <field name="untaxed_amount" attrs="{'invisible':[('related_invoice','=', False)]}" />
                                 </field>
 
                                 <field name="untaxed_amount" position="after">
-                                    <field name="total_amount" attrs="{'invisible':[('invoice_id','=', False)]}" />
+                                    <field name="total_amount" attrs="{'invisible':[('related_invoice','=', False)]}" />
                                 </field>
 
                                 <field name="total_amount" position="after">
-                                    <field name="total_net_amount" attrs="{'invisible':[('invoice_id','=', False)]}" />
+                                    <field name="total_net_amount" attrs="{'invisible':[('related_invoice','=', False)]}" />
                                 </field>
                             </group>
                         </group>

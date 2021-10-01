@@ -77,6 +77,7 @@
                                     <th name="th_invoice_ammount">Importe de Factura</th>
                                     <th name="th_taxable_income">Base Imponible</th>
                                     <th name="th_tax_rate">% Ret</th>
+                                    <th name="th_temp">Menos Sustraendo</th>
                                     <th name="th_tax_withheld">Impuesto Retenido</th>
                                 </tr>
                             </thead>
@@ -111,6 +112,9 @@
                                         <t t-if="doc.tax_amount">
                                             <span t-field="doc.tax_amount"/>
                                         </t>
+                                    </td>
+                                    <td name="th_tax_withheld">
+                                        <p> - </p>
                                     </td>
                                     <td name="th_tax_withheld">
                                         <t t-if="doc.taxed_amount_held">
