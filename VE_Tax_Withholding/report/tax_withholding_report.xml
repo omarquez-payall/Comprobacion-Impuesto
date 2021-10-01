@@ -15,9 +15,26 @@
         <t t-foreach="docs" t-as="doc">
             <t t-call="web.external_layout">
 
+                <!-- SEPARACION DE CONTENIDO TITULO-->
+                <div style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
+                    <h4 class="nt16"> COMPROBANTE DE RETENCIÓN DEL IMPUESTO SOBRE LA RENTA I.S.L.R. </h4>
+                    <div class="row nt32 nb32" id="withholding_info">
+                        <div class="col-auto mw-100 mb-2" style="font-size:12px;">
+                            <p>
+                                <strong>REGLAMENTO PARCIAL DE LA LEY DE IMPUESTO SOBRE LA RENTA EN MATERIA DE RETENCIONES Decreto N° 1.808 23 de abril de 1997</strong>
+                            </p>
+                            <p style="margin-top: -15px;">
+                              Artículo 24: Los agentes de retención están obligados a entregar a los contribuyentes, 
+                              un comprobante por cada retención de impuesto que les practiquen en el cual se indique,
+                              entre otra información, el monto de lo pagado o abonado en cuenta y la cantidad retenida.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+​
                 <!-- SEPARACION DE CONTENIDO INFORMACION DEL CLIENTE -->
                 <div >
-                    <div style="width: 50%; float:left;">
+                    <div style="width: 60%; float:left;">
                         <t t-set="address" />
                         <span style=" font-size: 20px !important; font-weight:bold !important;"> Informacion del Cliente</span>
                         <address t-field="doc.related_invoice.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
@@ -31,34 +48,24 @@
                             </p>
                         </div>
                     </div>
-                    <div style="width: 50%; min-height: 50px; float:left; padding-top: 50px;">
-                        <h4>COMPROBANTE #: 3646818</h4>
+                    <div style="width: 40%; min-height: 50px; float:left;">
+                        <h4>COMPROBANTE #: <span  t-field="doc.code"/></h4>
+                        <p>Fecha de Emisión: <span  t-field="doc.create_date"/></p>
+                        <p style="margin-top: -15px;">Periodo Fiscal: Octubre 2021</p>
                     </div>
                 </div>
-
+​
                 <div style="clear:both;"></div>
-                <!-- SEPARACION DE CONTENIDO TITULO-->
-                <div style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
-                    <h4 class="nt16"> COMPROBANTE DE RETENCIONES VARIAS (AR-CV) </h4>
-                    <div class="row nt32 nb32" id="withholding_info">
-                        <div class="col-auto mw-100 mb-2" style="font-size:12px;">
-                            <p> DEL IMPUESTO SOBRE LA RENTA </p>
-                            <p style="margin-top: -15px"> (EXCEPTO SUELDOS, SALARIOS Y DEMAS REMUNERACIONES SIMILARES A PERSONAS NATUALES RESIDENTES) </p>
-                        </div>
-                    </div>
-                </div>
-
+​
+​
                 <!-- INFORMACION PREVIA A LA TABLA-->
                 <div>
-                    <div style="width: 50%; float:left; padding: 10px;">
-                        <p>Periodo:</p>
-                    </div>
                     <div style="width: 50%; float:left; text-align: justify; margin-bottom: 20px; padding:10px;">
-                        <p>Concepto: Servicios. </p>
+                        <p>Concepto: <span  t-field="doc.subject"/> </p>
                     </div>
                 </div>
-
-
+​
+​
                 <div class="page" style="margin-bottom:20px;">
                     <div class="row">
                         <table class="table table-sm o_main_table">
@@ -66,12 +73,11 @@
                                 <tr>
                                     <th name="th_invoice">No Factura</th>
                                     <th name="th_date">Fecha</th>
-                                    <th name="th_type">Tipo</th>
+                                    <th name="th_type">No Control</th>
                                     <th name="th_invoice_ammount">Importe de Factura</th>
                                     <th name="th_taxable_income">Base Imponible</th>
                                     <th name="th_tax_rate">% Ret</th>
                                     <th name="th_tax_withheld">Impuesto Retenido</th>
-                                    <th name="th_net_amount">Importe Neto</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -86,56 +92,50 @@
                                             <span t-field="doc.related_invoice.invoice_date"/>
                                         </t>
                                     </td>
-                                    <td name="th_type">
-                                        <p>PND</p>
+                                    <td name="th_control_number">
+                                        <t t-if="doc.related_invoice.control_number">
+                                            <span t-field="doc.related_invoice.control_number"/>
+                                        </t>
                                     </td>
                                     <td name="th_invoice_ammount">
-                                        <t t-if="doc.related_invoice.amount_total">
-                                            <span t-field="doc.related_invoice.amount_total"/>
+                                        <t t-if="doc.total_amount">
+                                            <span t-field="doc.total_amount"/>
                                         </t>
                                     </td>
                                     <td name="th_taxable_income">
-                                        <p>452</p>
-                                    </td>
-                                    <td name="th_tax_rate">
-                                        <p>4%</p>
-                                    </td>
-                                    <td name="th_tax_withheld">
-                                        <t t-if="doc.related_invoice.amount_tax">
-                                            <span t-field="doc.related_invoice.amount_tax"/>
+                                        <t t-if="doc.untaxed_amount">
+                                            <span t-field="doc.untaxed_amount"/>
                                         </t>
                                     </td>
-                                    <td name="th_net_amount">
-                                        <p>6506</p>
+                                    <td name="th_tax_rate">
+                                        <t t-if="doc.tax_amount">
+                                            <span t-field="doc.tax_amount"/>
+                                        </t>
+                                    </td>
+                                    <td name="th_tax_withheld">
+                                        <t t-if="doc.taxed_amount_held">
+                                            <span t-field="doc.taxed_amount_held"/>
+                                        </t>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div style="width:30%; min-height: 20px; border-top: 4px solid black; float: right;">
-                        <p>Importe Neto:  634.463.468,00</p>
+                        <p>Importe Neto:  <span t-field="doc.total_amount"/> Bs.</p>
                     </div>
                 </div>
-
                 <!-- SECTION PARA COLOCAR SELLOS Y FIRMAS -->
                 <br></br>
                 <div style="margin-top: 20px;">
                     <div style="width:40%; height: 100px; border: 1px solid black; float: left; padding: 10px; font-size: 12px;">
                         <p> AGENTE DE RETENCION (SELLO,FECHA Y FIRMA) </p>
                     </div>
-
+​
                     <div style="width:20%; border: 1px solid transparent; float: left;"></div>
                     <div style="width:40%; height: 100px; border: 1px solid black; float: left; padding: 10px; font-size: 12px;">
                         <p> BENEFICIARIO</p>
                     </div>
-                </div>
-
-                <!-- ARTICULO -->
-                <div style="width:80%; border: 1px solid black; margin-top: 150px; margin-left:10%; margin-right:10%; padding: 10px; text-align: justify; font-size:10px;">
-                    <p> <strong>REGLAMENTO PARCIAL DE LA LEY DE IMPUESTO SOBRE LA RENTA EN MATERIA DE RETENCIONES Decreto N` 1.808 23 de abril de 1997 </strong>
-                    " Articulo 24: Los agentes de retención están obligados a entregar a los contribuyentes, un comprobante por cada retención 
-                       de impuesto que les practiquen en el cual se indique, entre otra informacion, el monto de lo pagado o abonado en cuenta y la cantidad retenida."
-                    </p>
                 </div>
             </t>
         </t>
