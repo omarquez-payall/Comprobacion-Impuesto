@@ -40,7 +40,7 @@ class TaxWithholdingVoucher( models.Model):
         for record in self:
             if record.amount_by_group:
                 
-                record.amount_by_group.append(('0.00%', 0.0, 1.0, '0', '0',0 ,0))
+                #record.amount_by_group.append(('0.00%', 0.0, 1.0, '0', '0',0 ,0))
                 
                 self.untaxed_amount = record.amount_by_group[1][2]
                 
