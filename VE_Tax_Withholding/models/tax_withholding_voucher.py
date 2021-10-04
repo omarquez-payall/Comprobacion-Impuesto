@@ -24,15 +24,34 @@ class TaxWithholdingVoucher( models.Model):
 
     customer = fields.Many2one(string='Cliente', related='related_invoice.partner_id')
 
-    tax_amount = fields.Float(string='Porcentaje de impuesto retenido', readonly=True)
+    tax_amount = fields.Float(string='Porcentaje de impuesto retenido', stored=True , readonly=True)
     
-    untaxed_amount = fields.Float(string='Base Imponible', readonly=True)
+    untaxed_amount = fields.Float(string='Base Imponible', stored=True, readonly=True)
     
-    taxed_amount_held = fields.Float(string='Impuesto Retenido', readonly=True)
+    taxed_amount_held = fields.Float(string='Impuesto Retenido', stored=True, readonly=True)
     
-    total_net_amount = fields.Float(string='Importe Neto', readonly=True)
+    total_net_amount = fields.Float(string='Importe Neto' , stored=True, readonly=True)
     
-    total_amount = fields.Float(string='Importe de factura', readonly=True)
+    total_amount = fields.Float(string='Importe de factura', stored=True , readonly=True)
+
+    period_date = fields.Date(string='Fecha de período', default=fields.Date.today, stored=True)
+    
+    period_year = fields.Integer(string='año', stored=True)
+    
+    period_month = fields.Char(string='mes', stored=True)
+    
+    period = fields.Text(string='Periodo', stored=True)
+
+
+
+    @api.onchange('period_date')
+    def _compute_period(self):
+        for record in self:
+            self.period_year = record.period_date.year
+            
+            self.period_month = record.period_date.strftime("%B")
+            
+            self.period = self.period_month + ' ' + str(self.period_year)
 
 
     @api.onchange('related_invoice')
@@ -40,7 +59,7 @@ class TaxWithholdingVoucher( models.Model):
         for record in self:
             if record.amount_by_group:
                 
-                #record.amount_by_group.append(('0.00%', 0.0, 1.0, '0', '0',0 ,0))
+                record.amount_by_group.append(('0.00%', 0.0, 1.0, '0', '0',0 ,0))
                 
                 self.untaxed_amount = record.amount_by_group[1][2]
                 
