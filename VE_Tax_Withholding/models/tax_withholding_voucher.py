@@ -20,7 +20,7 @@ class TaxWithholdingVoucher( models.Model):
                                         comodel_name = 'account.move',
                                         required = True)
 
-    amount_by_group = fields.Binary(string='Porcentaje de impuesto',related='related_invoice.amount_by_group', store=True)
+    amount_by_group = fields.Binary(string='Porcentaje de impuesto',related='related_invoice.amount_by_group')
 
     customer = fields.Many2one(string='Cliente', related='related_invoice.partner_id')
 
