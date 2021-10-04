@@ -19,7 +19,7 @@
     
     'version': '1.0.0',
     
-    'depends': ['account_accountant'],
+    'depends': ['account_accountant','sale_management'],
     
     'data': [
         "security/tax_withholding_security.xml",
