@@ -42,14 +42,14 @@ class TaxWithholdingVoucher( models.Model):
                 
                 #record.amount_by_group.append(('0.00%', 0.0, 1.0, '0', '0',0 ,0))
                 
-                self.untaxed_amount = self.record.amount_by_group[1][2]
+                self.untaxed_amount = record.amount_by_group[1][2]
                 
-                self.taxed_amount_held = self.record.amount_by_group[1][1] * (-1)
+                self.taxed_amount_held = record.amount_by_group[1][1] * (-1)
                 
-                self.total_amount = self.untaxed_amount + self.record.amount_by_group[0][1]
+                self.total_amount = self.untaxed_amount + record.amount_by_group[0][1]
                 
                 self.total_net_amount = self.total_amount - self.taxed_amount_held
                 
-                self.tax_amount = self.record.amount_by_group[1][1]*(-100/self.record.amount_by_group[1][2])
+                self.tax_amount = record.amount_by_group[1][1]*(-100/record.amount_by_group[1][2])
             else:
                 self.tax_amount = 0.00
