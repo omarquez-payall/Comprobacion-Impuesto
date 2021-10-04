@@ -42,6 +42,8 @@ class TaxWithholdingVoucher( models.Model):
     
     period = fields.Text(string='Periodo', stored=True)
 
+    creation_date = fields.Date(string='Fecha de creacion', default=fields.Date.today)
+
 
 
     @api.onchange('period_date')
