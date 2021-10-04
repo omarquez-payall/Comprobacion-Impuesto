@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
-    <record 
+    <report 
         id="action_report_tax_withholding"
         model="tax.withholding_voucher"
         string="Comprobante de Retencion"
