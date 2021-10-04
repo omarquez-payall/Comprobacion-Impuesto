@@ -24,15 +24,15 @@ class TaxWithholdingVoucher( models.Model):
 
     customer = fields.Many2one(string='Cliente', related='related_invoice.partner_id')
 
-    tax_amount = fields.Float(string='Porcentaje de impuesto retenido', store=True , readonly=True)
+    tax_amount = fields.Float(string='Porcentaje de impuesto retenido', store=True )
     
-    untaxed_amount = fields.Float(string='Base Imponible', store=True, readonly=True)
+    untaxed_amount = fields.Float(string='Base Imponible', store=True)
     
-    taxed_amount_held = fields.Float(string='Impuesto Retenido', store=True, readonly=True)
+    taxed_amount_held = fields.Float(string='Impuesto Retenido', store=True)
     
-    total_net_amount = fields.Float(string='Importe Neto' , store=True, readonly=True)
+    total_net_amount = fields.Float(string='Importe Neto' , store=True)
     
-    total_amount = fields.Float(string='Importe de factura', store=True , readonly=True)
+    total_amount = fields.Float(string='Importe de factura', store=True )
 
     period_date = fields.Date(string='Fecha de período', default=fields.Date.today, store=True)
     
