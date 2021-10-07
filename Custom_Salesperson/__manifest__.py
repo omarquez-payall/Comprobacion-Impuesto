@@ -29,6 +29,6 @@
     ],
     
     'demo': [
-        
+        'demo/custom_salesperson_demo.xml',
     ],
 }

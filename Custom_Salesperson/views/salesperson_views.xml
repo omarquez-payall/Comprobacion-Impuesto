@@ -23,7 +23,7 @@
             <field name="name">custom_salesperson.salesperson.list</field>
             <field name="model">custom_salesperson.salesperson</field>
             <field name="arch" type="xml">
-                <tree string="spaceship List">
+                <tree string="Salesperson List">
                     <field name="name"/>
                     <field name="description"/>
                     <field name="active"/>

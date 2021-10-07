@@ -13,6 +13,6 @@
         </record>
         
         <menuitem name="Salespeople" id="menu_custom_salesperson" sequence="1" />
-        <menuitem id="menu_custom_salesperson_sub" name="Custom Salespeople" parent="menu_custom_salesperson" sequence="2" />
+        <menuitem id="menu_custom_salesperson_sub" name="Custom Salespeople" parent="menu_custom_salesperson" sequence="2"  action="salesperson_list_action"/>
     </data>
 </odoo>
