@@ -8,13 +8,15 @@ class TaxWithholdingVoucher( models.Model):
     _description = 'Tax Withholding Voucher Info'
 
 
-    code = fields.Char( string = 'Identifier Code', required = True)
+    code = fields.Char( string = 'Codigo de la Retencion', required = True)
 
-    subject = fields.Char( string = 'Concepto', required = True)
+    subject = fields.Many2one( string = 'Concepto de la Retencion',
+                                        comodel_name = 'tax.withholding_subject',
+                                        required = True)
 
     notes = fields.Text( string = 'Internal Notes about Voucher')
 
-    active = fields.Boolean( string = 'Active', default = True)
+    active = fields.Boolean( string = 'Activo', default = True)
 
     related_invoice = fields.Many2one( string = 'Referencia de la Factura',
                                         comodel_name = 'account.move',
