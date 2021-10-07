@@ -26,7 +26,7 @@
         "security/ir.model.access.csv",
         "report/tax_withholding_report.xml",
         "views/account_move_inherit_view.xml",
-        "views/tax_withholding_subject_actions.xml"
+        "views/tax_withholding_subject_actions.xml",
         "views/sale_order_inherit_view.xml",
         "views/tax_withholding_subject_view.xml",
         "views/tax_withholding_views.xml",
