@@ -28,7 +28,8 @@
         "views/tax_withholding_menuitems.xml",
         "report/tax_withholding_report.xml",
         "views/account_move_inherit_view.xml",
-        "views/sale_order_inherit_view.xml"
+        "views/sale_order_inherit_view.xml",
+        "views/tax_withholding_subject_view.xml",
     ],
     
     'demo': [
