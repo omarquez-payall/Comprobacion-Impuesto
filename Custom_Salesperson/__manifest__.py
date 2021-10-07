@@ -24,6 +24,8 @@
     'data': [
         'security/salesperson_security.xml',
         'security/ir.model.access.csv',
+        'views/custom_salesperson_menuitems.xml',
+        'views/salesperson_views.xml',
     ],
     
     'demo': [
