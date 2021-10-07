@@ -22,7 +22,8 @@
     'depends': ['account_accountant','sale_management'],
     
     'data': [
-        
+        'security/salesperson_security.xml',
+        'security/ir.model.access.csv',
     ],
     
     'demo': [
