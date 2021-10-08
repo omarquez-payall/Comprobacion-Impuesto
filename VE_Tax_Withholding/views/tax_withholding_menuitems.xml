@@ -33,7 +33,7 @@
         <menuitem id="tax_withholding_menu_customer" name="Clientes" parent="tax_withholding_menu_sub" sequence="3" action="tax_withholding_list_action" />
         <menuitem id="tax_withholding_menu_vendors" name="Proveedores" parent="tax_withholding_menu_sub" sequence="4" action="tax_withholding_list_action" />
     
-        <menuitem id="tax_withholding_menu_sub" name="Conceptos de Retencion" parent="tax_withholding_configuration_menu" sequence="3" action="tax_withholding_subject_list_action"/>
+        <menuitem id="tax_withholding_menu_subjects" name="Conceptos" parent="tax_withholding_configuration_menu" sequence="3" action="tax_withholding_subject_list_action"/>
     
     </data>
 </odoo>

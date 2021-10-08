@@ -33,5 +33,6 @@
     ],
     
     'demo': [
+        "demo/withholding_subjects_demo.xml"
     ],
 }
