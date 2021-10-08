@@ -12,7 +12,7 @@ class WithholdingSubject( models.Model):
     subject = fields.Char( string = 'Concepto de la Retención',
                             required = True)
 
-    code = fields.Integer( string = 'Código',
+    code = fields.Char( string = 'Código',
                             required = True)
 
     notes = fields.Text( string = 'Notas internas')
