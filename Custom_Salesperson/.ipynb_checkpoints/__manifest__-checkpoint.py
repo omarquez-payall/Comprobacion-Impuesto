@@ -26,6 +26,8 @@
         'security/ir.model.access.csv',
         'views/custom_salesperson_menuitems.xml',
         'views/salesperson_views.xml',
+        'views/sale_order_inherit.xml',
+        'views/account_move_inherit.xml',
     ],
     
     'demo': [
