@@ -19,7 +19,8 @@
         <menuitem id="tax_withholding_menu_customer" name="Clientes" parent="tax_withholding_menu_sub" sequence="3" action="tax_withholding_list_action" />
         <menuitem id="tax_withholding_menu_vendors" name="Proveedores" parent="tax_withholding_menu_sub" sequence="4" action="tax_withholding_list_action" />
     
-        <menuitem name="Configuracion" id="tax_withholding_configuration_menu" groups="VE_Tax_Withholding.group_tax_withholding_admin" sequence="10" />
+        <menuitem name="Configuracion" id="tax_withholding_configuration_menu" parent="tax_withholding_menu" groups="VE_Tax_Withholding.group_tax_withholding_admin" sequence="2" />
         <menuitem id="tax_withholding_menu_sub" name="Conceptos de Retencion" parent="tax_withholding_configuration_menu" sequence="12" action="tax_withholding_subject_list_action"/>
+    
     </data>
 </odoo>
