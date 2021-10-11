@@ -24,18 +24,11 @@
     'data': [
         "security/tax_withholding_security.xml",
         "security/ir.model.access.csv",
-        "report/tax_withholding_report.xml",
-        "views/tax_withholding_menuitems.xml",
-        "data/withholding_subjects_data.xml",
-        "views/tax_withholding_subject_view.xml",
         "views/tax_withholding_views.xml",
-        "views/account_move_inherit_view.xml",
-        
-        
-       
+        "views/tax_withholding_menuitems.xml",
+        "report/tax_withholding_report.xml",
     ],
     
     'demo': [
-        "data/withholding_subjects_demo.xml"
     ],
 }
