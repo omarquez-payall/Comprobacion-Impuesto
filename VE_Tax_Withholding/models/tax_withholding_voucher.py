@@ -38,10 +38,6 @@ class TaxWithholdingVoucher( models.Model):
 
     period_date = fields.Date(string='Fecha de período', default=fields.Date.today, store=True)
     
-    period_year = fields.Integer(string='año', store=True)
-    
-    period_month = fields.Char(string='mes', store=True)
-    
     period = fields.Text(string='Periodo', store=True)
 
     creation_date = fields.Date(string='Fecha de creacion', default=fields.Date.today)
@@ -51,11 +47,9 @@ class TaxWithholdingVoucher( models.Model):
     @api.onchange('period_date')
     def _compute_period(self):
         for record in self:
-            self.period_year = record.period_date.year
+            months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre']
             
-            self.period_month = record.period_date.strftime("%B")
-            
-            self.period = self.period_month + ' ' + str(self.period_year)
+            self.period = months[record.period_date.month] + ' ' + str(record.period_date.year)
 
 
     @api.onchange('related_invoice')
