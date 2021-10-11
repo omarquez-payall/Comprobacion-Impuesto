@@ -9,7 +9,7 @@ class WithholdingSubject( models.Model):
 
     _description = 'Subject of Withholding Voucher'
 
-    subject = fields.Char( string = 'Concepto de la Retención',
+    name = fields.Char( string = 'Concepto de la Retención',
                             required = True)
 
     code = fields.Char( string = 'Código',
