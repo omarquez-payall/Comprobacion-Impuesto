@@ -30,9 +30,10 @@
         "views/tax_withholding_subject_view.xml",
         "views/tax_withholding_views.xml",
         "views/tax_withholding_menuitems.xml",
+        "data/withholding_subjects_data.xml"
     ],
     
     'demo': [
-        "demo/withholding_subjects_demo.xml"
+        "data/withholding_subjects_demo.xml"
     ],
 }
