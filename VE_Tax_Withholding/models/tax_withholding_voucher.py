@@ -12,6 +12,7 @@ class TaxWithholdingVoucher( models.Model):
 
     subject = fields.Many2one( string = 'Concepto de la Retencion',
                                         comodel_name = 'tax.withholding_subject',
+                                        related = 'tax.withholding_subject.subject',
                                         required = True)
 
     notes = fields.Text( string = 'Internal Notes about Voucher')
