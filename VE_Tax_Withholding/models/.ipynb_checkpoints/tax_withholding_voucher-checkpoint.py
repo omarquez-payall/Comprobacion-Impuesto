@@ -49,7 +49,7 @@ class TaxWithholdingVoucher( models.Model):
         for record in self:
             months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre']
             
-            self.period = months[record.period_date.month] + ' ' + str(record.period_date.year)
+            self.period = months[record.period_date.month-1] + ' ' + str(record.period_date.year)
 
 
     @api.onchange('related_invoice')
