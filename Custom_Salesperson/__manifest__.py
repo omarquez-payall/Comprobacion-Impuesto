@@ -28,6 +28,7 @@
         'views/salesperson_views.xml',
         'views/sale_order_inherit.xml',
         'views/account_move_inherit.xml',
+        'demo/custom_salesperson_demo.xml',
     ],
     
     'demo': [
