@@ -30,8 +30,7 @@
         "views/tax_withholding_subject_view.xml",
         "views/tax_withholding_views.xml",
         "views/account_move_inherit_view.xml",
-        
-        
+        "views/purchases_book_views.xml",        
        
     ],
     
