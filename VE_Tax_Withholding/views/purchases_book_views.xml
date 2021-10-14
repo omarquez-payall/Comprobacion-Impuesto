@@ -20,7 +20,7 @@
                         </group>
                         <notebook>
                             <page string="Facturas">
-                                <field name="related_invoice"/>
+                                <field name="related_invoices"/>
                             </page>
                         </notebook>
                     </sheet>
