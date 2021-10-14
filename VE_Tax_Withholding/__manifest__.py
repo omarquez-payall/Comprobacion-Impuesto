@@ -31,7 +31,6 @@
         "views/tax_withholding_views.xml",
         "views/account_move_inherit_view.xml",
         "views/purchases_book_views.xml",
-        "views/purchases_book_inherit_views.xml",
        
     ],
     

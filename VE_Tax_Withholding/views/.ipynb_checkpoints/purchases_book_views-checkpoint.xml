@@ -6,8 +6,8 @@
             <field name="name">tax.purchases_book.list</field>
             <field name="model">tax.purchases_book</field>
             <field name="arch" type="xml">
-                <tree string="Facturas de Proveedor">
-                    
+                <tree>
+                    <field name="related_invoice" />
                 </tree>
             </field>
         </record>
