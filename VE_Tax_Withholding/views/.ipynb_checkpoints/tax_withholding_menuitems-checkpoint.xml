@@ -26,7 +26,7 @@
         <record model="ir.actions.act_window" id="purchases_book_list_action">
             <field name="name">Libro de Compras</field>
             <field name="res_model">tax.purchases_book</field>
-            <field name="view_mode">tree</field>
+            <field name="view_mode">form</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
                     Libro de compras

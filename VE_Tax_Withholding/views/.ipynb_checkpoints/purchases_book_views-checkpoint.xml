@@ -1,17 +1,32 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data> 
-
-        <record model="ir.ui.view" id="purchases_book_list">
-            <field name="name">tax.purchases_book.list</field>
+        
+        <record model="ir.ui.view" id="purchases_book_form">
+            <field name="name">tax.purchases_book.form</field>
             <field name="model">tax.purchases_book</field>
             <field name="arch" type="xml">
-                <tree>
-                    <field name="related_invoice" />
-                </tree>
+                <form string="Libro de Compras">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="description"/>
+                            </group>
+                            <group>
+                                <field name="date_from"/>
+                                <field name="date_to"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Facturas">
+                                <field name="related_invoice"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
             </field>
-        </record>
-        
+        </record>        
  
     </data>
 </odoo>
