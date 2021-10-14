@@ -14,4 +14,4 @@ class PurchasesBook( models.Model):
     
     date_to = fields.Date(string='Fecha hasta', default=fields.Date.today)
     
-    related_invoice = fields.One2many(string='Facturas', comodel_name='account.move', required=True)
+    related_invoices = fields.One2many(string='Facturas', comodel_name='account.move', inverse_name='name')
