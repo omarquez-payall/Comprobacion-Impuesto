@@ -6,12 +6,12 @@
             <field name="name">tax.purchases_book.list</field>
             <field name="model">tax.purchases_book</field>
             <field name="arch" type="xml">
-                <tree string="Purchases Book List">
-                   <field name="name"/>
-                   <field name="description"/>
+                <tree string="Facturas de Proveedor">
+                    
                 </tree>
             </field>
         </record>
+        
  
     </data>
 </odoo>
